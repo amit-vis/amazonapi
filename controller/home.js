@@ -40,17 +40,20 @@ module.exports.fetchData = async (req, res) => {
 
 module.exports.transaction = async (req, res) => {
     try {
-        const page = Number(req.query.page) || 1;
-        const limit = Number(req.query.limit) || 10;
+        const page = req.query.page;
+        const limit = 6;
         const skip = (page - 1) * limit;
-        let search = req.query.search || '';
+        let search = req.query.search;
         const query = {};
         if(search){
             query.$or=[
-                { title: { $regex: '.*' + search + '.*', $options: 'i' } },
-                { description: { $regex: '.*' + search + '.*', $options: 'i' } },
-                { price: { $regex: '.*' + search + '.*', $options: 'i' } }
-            ]
+                { title: { $regex: search , $options: 'i' } },
+                { description: { $regex: search, $options: 'i' } },
+            ];
+            const priceAsNumber = parseInt(search);
+            if(!isNaN(priceAsNumber)){
+                query.$or.push({price: {$eq: priceAsNumber}});
+            }
         }
 
         const transactionData = await Product.find(query)
@@ -64,6 +67,7 @@ module.exports.transaction = async (req, res) => {
             message: "here is the pagination data",
             transactionData,
             totalCount,
+            page,
             pageLimit: limit,
             totalPages
 
