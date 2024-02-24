@@ -1,6 +1,7 @@
 
 const staticsController = require('./statics');
 
+// code for get all combined data
 module.exports.combinedData = async (req, res)=>{
     try {
         const selectedMonth = req.query.month;

@@ -1,3 +1,4 @@
+// route for home page and conect all the required route file
 const express = require('express');
 const router = express.Router();
 const homeController = require('../controller/home');

@@ -1,5 +1,7 @@
+// statics data controller
 const Product = require('../model/product');
 
+// code for get total saleAmount 
 module.exports.totalSaleAmount = async (req, res)=>{
     try {
         const selectedMonth = req.query.month;
@@ -35,6 +37,7 @@ module.exports.totalSaleAmount = async (req, res)=>{
     }
 }
 
+// code for get total sold Items
 module.exports.totalSoldItems = async (req, res)=>{
     try {
         const selectedMonth = req.query.month;
@@ -60,6 +63,7 @@ module.exports.totalSoldItems = async (req, res)=>{
     }
 }
 
+// code for total not sold Items
 module.exports.totalNotSoldItem = async (req, res)=>{
     try {
         const selectedMonth = req.query.month;
@@ -85,6 +89,7 @@ module.exports.totalNotSoldItem = async (req, res)=>{
     }
 }
 
+// code for get the data by price Range
 module.exports.getPriceRangeData = async (req, res)=>{
     try {
         const selectedMonth = req.query.month;
@@ -129,6 +134,7 @@ module.exports.getPriceRangeData = async (req, res)=>{
     }
 }
 
+// code for get the data by category
 module.exports.categoryData = async (req, res)=>{
     try {
         const selectedMonth = req.query.month;

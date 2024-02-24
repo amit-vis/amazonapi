@@ -1,6 +1,7 @@
 const Product = require('../model/product');
 const secure = require('../config/secure');
 
+// check the our server is working or not
 module.exports.home = async (req, res) => {
     try {
         return res.status(200).json({
@@ -16,6 +17,7 @@ module.exports.home = async (req, res) => {
     }
 }
 
+// fetching the data from api sna seeding in the database
 module.exports.fetchData = async (req, res) => {
     try {
         const response = await fetch(secure.apiurl);
@@ -38,6 +40,7 @@ module.exports.fetchData = async (req, res) => {
     }
 }
 
+// code for pagination and search the data by title description and price
 module.exports.transaction = async (req, res) => {
     try {
         const page = req.query.page;

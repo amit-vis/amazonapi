@@ -1,3 +1,4 @@
+// route for the statics
 const express = require('express');
 const router = express.Router();
 const staticsController = require('../controller/statics');
