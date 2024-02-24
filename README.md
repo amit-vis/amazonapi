@@ -36,7 +36,7 @@ To run tests, run the following command
     7. get statics data of CategoryData: [get]: /statics/category-data
     8. get combined data: [get]: /combine/combined-data
 
-    ## Folder Structure
+## Folder Structure
 * config
     - mongoose.js
     - secure.js
